@@ -19,5 +19,6 @@ public class Main {
         System.out.println(c2);
         c2.setAccount(c1.getAccount());
         System.out.println(c2);
+        System.out.println(c1);
     }
 }
