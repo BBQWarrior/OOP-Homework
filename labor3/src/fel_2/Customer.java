@@ -23,6 +23,10 @@ public class Customer {
         return lastName;
     }
 
+    public int getNumAccounts() {
+        return numAccounts;
+    }
+
     public BankAccount getAccount(String accountNumber) {
         for (BankAccount account : accounts) {
             if (account.getAccountNumber().equals(accountNumber)) {
@@ -59,10 +63,11 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", account=" + accounts +
-                '}';
+        StringBuffer result = new StringBuffer();
+        result.append(firstName+' ' +lastName + " accounts:\n");
+        for(int i = 0;i<numAccounts;i++){
+            result.append("\t" + accounts[i] + "\n");
+        }
+        return result.toString();
     }
 }
