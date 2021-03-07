@@ -47,7 +47,7 @@ public class Main {
 
 // 3 fel
 
-//        System.out.print(countBits(13));
+        System.out.print(countBits(13));
 
 // 4 fel
 
@@ -61,10 +61,10 @@ public class Main {
 
 //  6 fel
 
-        double[] array = {1, 5, 6, 3, 4, 8, 1, 55, 5};
-        double[] res = max2(array);
-        System.out.printf("Max 1: %5.2f\n", res[0]);
-        System.out.printf("Max 2: %5.2f\n", res[1]);
+//        double[] array = {1, 5, 6, 3, 4, 8, 1, 55, 5};
+//        double[] res = max2(array);
+//        System.out.printf("Max 1: %5.2f\n", res[0]);
+//        System.out.printf("Max 2: %5.2f\n", res[1]);
     }
 
     public static double maxElement(double[] array) {
@@ -87,6 +87,9 @@ public class Main {
     public static int countBits(int number) {
         int res = 0;
         for (int i = 0; i < 32; i++) {
+            if(number >> i == 0){
+                break;
+            }
             res += (number >> i) & 1;
         }
         return res;
