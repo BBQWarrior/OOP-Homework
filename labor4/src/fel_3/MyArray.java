@@ -1,9 +1,8 @@
 package fel_3;
 
-import org.ietf.jgss.GSSContext;
-
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,12 +17,18 @@ public class MyArray {
 
     public MyArray(MyArray arr) {
         this.length = arr.length;
-        this.elements = arr.elements;
+        this.elements = new double[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            this.elements[i] = arr.elements[i];
+        }
     }
 
     public MyArray(double[] arr) {
         this.length = arr.length;
-        this.elements = arr;
+        this.elements = new double[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            this.elements[i] = arr[i];
+        }
     }
 
     public MyArray(String fileName) {
@@ -54,6 +59,9 @@ public class MyArray {
     }
 
     public double mean() {
+        if (length == 0) {
+            return Double.NaN;
+        }
         double sum = 0;
         for (int i = 0; i < length; i++) {
             sum += elements[i];
@@ -62,6 +70,9 @@ public class MyArray {
     }
 
     public double stddev() {
+        if (length == 0) {
+            return Double.NaN;
+        }
         double mean = this.mean();
         double sum = 0;
         for (int i = 0; i < length; i++) {
@@ -71,15 +82,7 @@ public class MyArray {
     }
 
     public void sort() {
-        for (int i = 0; i < length; i++) {
-            for (int j = i + 1; j < length; j++) {
-                if (elements[i] > elements[j]) {
-                    double aux = elements[j];
-                    elements[j] = elements[i];
-                    elements[i] = aux;
-                }
-            }
-        }
+        Arrays.sort(elements);
     }
 
     public void print(String arrName) {
