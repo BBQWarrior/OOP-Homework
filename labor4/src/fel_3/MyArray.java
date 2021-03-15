@@ -17,18 +17,12 @@ public class MyArray {
 
     public MyArray(MyArray arr) {
         this.length = arr.length;
-        this.elements = new double[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            this.elements[i] = arr.elements[i];
-        }
+        this.elements = Arrays.copyOf(arr.elements, arr.length);
     }
 
     public MyArray(double[] arr) {
         this.length = arr.length;
-        this.elements = new double[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            this.elements[i] = arr[i];
-        }
+        this.elements = Arrays.copyOf(arr, arr.length);
     }
 
     public MyArray(String fileName) {
