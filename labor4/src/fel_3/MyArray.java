@@ -48,7 +48,7 @@ public class MyArray {
         }
         Random random = new Random();
         for (int i = 0; i < length; i++) {
-            elements[i] = random.nextInt(b - a) + a;
+            elements[i] = random.nextDouble()*(b - a) + a;
         }
     }
 
