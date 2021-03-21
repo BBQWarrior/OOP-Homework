@@ -56,7 +56,7 @@ public class Matrix {
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                res.append(data[i][j] + " ");
+                res.append(String.format("%10.3f", data[i][j]) + ", ");
             }
             res.append("\n");
         }
