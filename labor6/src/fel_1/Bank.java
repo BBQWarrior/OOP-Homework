@@ -32,7 +32,7 @@ public class Bank {
     private void printCustomers(PrintStream out) {
         out.println("ID, Firstname, Last name, Number of bank accounts");
         for (Customer customer : customers) {
-            out.println(customer.getId() + ", " + customer.getFirstName() + ", " + customer.getLastName() + ", " + customer.getNumAccounts());
+            out.println(customer);
         }
     }
 
