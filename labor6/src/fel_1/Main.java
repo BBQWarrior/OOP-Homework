@@ -13,7 +13,7 @@ public class Main {
         otp.getCustomer(2).addAccount(new SavingsAccount(0.1));
 
         Random rand = new Random();
-        for (int i = 0; i < otp.numCustomers(); ++i) {
+        for (int i = 1; i <= otp.numCustomers(); i++) {
             String[] accountNumbers = otp.getCustomer(i).getAccountNumbers();
             for (String accountNumber : accountNumbers) {
                 otp.getCustomer(i).getAccount(accountNumber).deposit(rand.nextInt(1000));
