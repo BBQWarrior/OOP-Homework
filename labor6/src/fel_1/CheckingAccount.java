@@ -17,4 +17,13 @@ public class CheckingAccount extends BankAccount{
         balance -= amount;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "CheckingAccount{" +
+                "balance=" + balance +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", overdraftLimit=" + overdraftLimit +
+                '}';
+    }
 }
