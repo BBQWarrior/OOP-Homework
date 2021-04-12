@@ -7,8 +7,8 @@ import static java.lang.Math.min;
 
 public class Matrix {
     private double[][] data;
-    private int rows;
-    private int columns;
+    private final int rows;
+    private final int columns;
 
     public Matrix(int rows, int columns) {
         this.rows = rows;
