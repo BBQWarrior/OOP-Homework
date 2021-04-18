@@ -19,7 +19,6 @@ public class Main {
                 otp.getCustomer(i).getAccount(accountNumber).deposit(rand.nextInt(1000));
             }
         }
-
         otp.printCustomersToStdout();
     }
 }
