@@ -76,6 +76,28 @@ public class Company {
         }
     }
 
+    public void printManagers() {
+        printManagers(System.out);
+    }
+
+    public void printManagers(PrintStream out) {
+        out.println(this.name + " - Managers:");
+        for (Employee employee : employees) {
+            if (employee.getClass() == Manager.class) {
+                out.println(employee);
+            }
+        }
+    }
+
+    public void fire(int id) {
+        for (Employee employee : employees) {
+            if (employee.getID() == id) {
+                employees.remove(employee);
+                return;
+            }
+        }
+    }
+
     public void sortByComparator(Comparator<Employee> comparator) {
         employees.sort(comparator);
     }
