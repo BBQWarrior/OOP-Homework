@@ -79,6 +79,17 @@ public class CircularQueue implements IQueue {
             return false;
         }
         CircularQueue temp = (CircularQueue) obj;
-        return Objects.equals(items, temp.items);
+        if ((this.rear + this.CAPACITY - this.front) % this.CAPACITY != (temp.rear + temp.CAPACITY - temp.front) % temp.CAPACITY) {
+            return false;
+        }
+        int i = this.front, j = temp.front;
+        while (i != this.rear && j != temp.rear) {
+            if (this.items[i] != temp.items[j]) {
+                return false;
+            }
+            i = (i + 1) % this.CAPACITY;
+            j = (j + 1) % temp.CAPACITY;
+        }
+        return true;
     }
 }
