@@ -2,7 +2,7 @@ package fel_4;
 
 import java.util.ArrayList;
 
-public class Stack{
+public class Stack {
     private int capacity;
     private ArrayList<Object> items = new ArrayList<>();
 
@@ -10,26 +10,23 @@ public class Stack{
         this.capacity = capacity;
     }
 
-    public void push(Object obj) {
+    public void push(Object obj) throws StackException {
         if (items.size() == capacity) {
-            System.out.println("Stack is full");
-            return;
+            throw new StackException("Stack is full!");
         }
         items.add(obj);
     }
 
-    public void pop() {
+    public void pop() throws StackException {
         if (items.size() == 0) {
-            System.out.println("Stack is empty");
-            return;
+            throw new StackException("Stack is empty!");
         }
         items.remove(items.size() - 1);
     }
 
-    public Object top() {
+    public Object top() throws StackException {
         if (items.size() == 0) {
-            System.out.println("Stack is empty");
-            return null;
+            throw new StackException("Stack is empty!");
         }
         return items.get(items.size() - 1);
     }
