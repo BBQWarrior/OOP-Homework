@@ -1,7 +1,7 @@
 package fel_4;
 
 public interface IExpression {
-    String[] operators = {"+", "*"};
+    String[] operators = {"+", "*", "-", "/"};
 
     static boolean isOperator(String str) {
         for (String operator : operators) {
@@ -25,6 +25,10 @@ public interface IExpression {
                     if (item.trim().equals("+")) {
                         stack.push(a + b);
                     } else if (item.trim().equals("*")) {
+                        stack.push(a * b);
+                    } else if (item.trim().equals("-")) {
+                        stack.push(a - b);
+                    } else if (item.trim().equals("/")) {
                         stack.push(a * b);
                     }
                 } catch (StackException e) {
