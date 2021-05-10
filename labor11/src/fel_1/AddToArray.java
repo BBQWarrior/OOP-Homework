@@ -21,8 +21,9 @@ public class AddToArray extends Thread {
             synchronized (array) {
                 array[minIndex()] = str;
             }
-            arrayWritten--;
-            if(arrayWritten < 1){;
+            int temp = arrayWritten.getAndDecrement();
+            if (temp < 1) {
+                System.out.println("Array has been modified 300 times: " + arrayWritten.get());
                 System.exit(0);
             }
             try {
@@ -30,7 +31,9 @@ public class AddToArray extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            print();
+            synchronized (System.out) {
+                print();
+            }
         }
     }
 

@@ -1,7 +1,9 @@
 package fel_1;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Main {
-    static int arrayWritten = 300;
+    static AtomicInteger arrayWritten = new AtomicInteger(300);
 
     public static void main(String[] args) {
         String[] sa_array = new String[10];
@@ -9,9 +11,19 @@ public class Main {
             sa_array[i] = " ";
         }
 
-        Thread producer = new AddToArray(sa_array);
-        Thread consumer = new TakeSomeFromArray(sa_array, "zzz", 10);
-        producer.start();
-        consumer.start();
+        Thread producer_1 = new AddToArray(sa_array);
+        Thread producer_2 = new AddToArray(sa_array);
+        Thread producer_3 = new AddToArray(sa_array);
+        Thread producer_4 = new AddToArray(sa_array);
+        Thread consumer_1 = new TakeSomeFromArray(sa_array, "zzz", 10);
+        Thread consumer_2 = new TakeSomeFromArray(sa_array, "zzz", 10);
+        Thread consumer_3 = new TakeSomeFromArray(sa_array, "zzz", 10);
+        producer_1.start();
+        producer_2.start();
+        producer_3.start();
+        producer_4.start();
+        consumer_1.start();
+        consumer_2.start();
+        consumer_3.start();
     }
 }

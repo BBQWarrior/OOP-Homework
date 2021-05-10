@@ -21,8 +21,8 @@ public class TakeSomeFromArray extends Thread {
             if (replaceTarget()) {
                 System.out.println(Thread.currentThread().getName() + ": String \"" + target + "\" has been replaced with \" \"");
                 i++;
-                arrayWritten--;
-                if(arrayWritten < 1){
+                int temp = arrayWritten.getAndDecrement();
+                if (temp < 1) {
                     System.out.println("Array has been modified " + arrayWritten + " times");
                     System.exit(0);
                 }
