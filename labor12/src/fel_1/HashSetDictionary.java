@@ -2,14 +2,13 @@ package fel_1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashSet;
 import java.util.Scanner;
 
-public class ArrayListDictionary implements IDictionary {
-    private ArrayList<String> words = new ArrayList<>();
+public class HashSetDictionary implements IDictionary {
+    private HashSet<String> words = new HashSet<>();
 
-    public ArrayListDictionary() {
+    public HashSetDictionary() {
         Scanner scanner = null;
         try {
             scanner = new Scanner(new File(DICTIONARY_FILE));
@@ -25,7 +24,7 @@ public class ArrayListDictionary implements IDictionary {
     }
 
     public static IDictionary newInstance() {
-        return new ArrayListDictionary();
+        return new HashSetDictionary();
     }
 
     @Override
@@ -35,13 +34,12 @@ public class ArrayListDictionary implements IDictionary {
             return false;
         }
         words.add(word);
-        Collections.sort(words);
         return true;
     }
 
     @Override
     public boolean find(String word) {
-        return Collections.binarySearch(words, word) >= 0;
+        return words.contains(word);
     }
 
     @Override
