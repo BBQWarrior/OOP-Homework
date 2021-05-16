@@ -10,17 +10,16 @@ public class ArrayListDictionary implements IDictionary {
     private ArrayList<String> words = new ArrayList<>();
 
     public ArrayListDictionary() {
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(new File(DICTIONARY_FILE));
+        try (Scanner scanner = new Scanner(new File(DICTIONARY_FILE));) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                words.add(line);
+            }
+            words.sort(String::compareTo);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("File not found: " + DICTIONARY_FILE);
             System.exit(1);
-        }
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            words.add(line);
         }
     }
 
